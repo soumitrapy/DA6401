@@ -28,11 +28,12 @@ def crossentropyloss(y, yhat):
     '''
     y: (n_samples, k)
     '''
+    y_one_hot = np.eye(10)[y]
     eps = 1e-10
     p = np.log(yhat+eps)
     
 
-    return np.sum(y*p,-1)
+    return np.sum(y_one_hot*p,-1)
 
 if __name__=="__main__":
     y = np.eye(3)
